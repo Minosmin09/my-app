@@ -1,34 +1,55 @@
-export default function Myapp() {
-  return (
-    <div className="flex justify-center items-center h-screen bg-white ">
-      <div className="w-full max-w-lg  ">
-        {/* Main content area with green background */}
-        <div className="relative w-full h-48 bg-green-500">
-          {/* Left circle cutout */}
-          <div className="absolute top-1/4 left-0 w-8 h-16 bg-white rounded-r-full"></div>
+import Image from 'next/image'
+import { Bungee_Tint } from "next/font/google";
+import Link from 'next/link';
 
-          {/* Banner */}
-          <div className="absolute -top-5 left-1/2 transform -translate-x-1/2 px-4 py-1 bg-teal-100 border border-gray-800 text-black font-medium cursor-pointer transition duration-300 hover:bg-teal-200 hover:border-black hover:scale-105 "> 
-            Banner
-          </div>
+const bungee = Bungee_Tint({
+  subsets: ["latin"],
+  weight: "400",
+});
 
-          {/* Close button */}
-          <div className="absolute top-1 right-1 w-5 h-5 text-sm flex items-center justify-center bg-black text-white rounded-sm ">
-          X
-        </div>
+export default function MyApp() {
+  return (<div>  
+    <h1 className={`${bungee.className} "font-bold m-2 p-2"`}>Hello world!!</h1>
 
+      <Link 
+        className='text-blue-800 block border-2 border-black p-2 m-2 w-fit mb-8'
+        href="/products" 
+        >
+          Go to Product Page
+      </Link>
+      <Link href="/musics" className="text-blue-500 underline">
+        Go to Music Store
+      </Link>
 
-          {/* Centered text */}
-          <div className="absolute inset-0 flex justify-center items-center">
-            <div className="border border-dashed border-white text-white rounded px-4 py-2">
-              This is Next.js position
-            </div>
-          </div>
+    <div className="w-[80%] border rounded p-4 m-auto bg-slate-100 
+    grid 
+    grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-4">
+      <Image
+        className='p-2 m-4'
+        src="https://computing.psu.ac.th/th/wp-content/uploads/2023/09/PSU-CoC-ENG_01_x49.png"
+        width={150}
+        height={150}
+        alt="PSU Logo"
+      />
 
-          {/* Bottom right cutout */}
-          <div className="absolute bottom-0 -right-0 w-16 h-8 bg-white rounded-tl-full"></div>
-        </div>
+      <Image
+        className="p-2 m-4"
+        src="/next.svg"
+        width={150}
+        height={150}
+        alt="Next.js Logo"
+      />
+
+      <div className="w-64 p-2 border mb-2 rounded bg-blue-200 hover:bg-blue-700 hover:text-blue-50">
+        Lorem idivsum, dolor sit amet consectetur adidivisicing elit. Doloribus, consequuntur.
+      </div>
+      <div className="w-64 p-2 border mb-2 rounded bg-blue-600 text-white">
+        Lorem idivsum, dolor sit amet consectetur adidivisicing elit. Doloribus, consequuntur.
+      </div>
+      <div className="w-64 p-2 border rounded bg-amber-300">
+        Lorem idivsum, dolor sit amet consectetur adipisicing elit. Doloribus, consequuntur.
       </div>
     </div>
-  );
+
+  </div>)
 }

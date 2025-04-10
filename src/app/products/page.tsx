@@ -1,30 +1,33 @@
+import Footer from "../components/Footer";
+import ProductItem from "../components/ProductItem";
+
 export default function Products() {
-    return (
-        <div>
-            <h1 className="font-bold text-xl m-4">Product</h1>
-            <div className="flex flex-wrap m-auto justify-center w-[80%] border rounded m-4 p-4 flex bg-slate-100">
-                <div className="shadow-lg rounded-md border w-fit bg-green-200 p-2 m-2">
-                    <h2>Computer:</h2>
-                    <p>Product description goes here.</p>
-                    <button className="border bg-blue-200 px-2 py-1 mt-2 rounded hover:font-bold">Buy Now</button>
-                </div>
-                <div className="shadow-lg rounded-md border w-fit bg-green-200 p-2 m-2">
-                    <h2>Macbook Pro M4:</h2>
-                    <p>Product description goes here.</p>
-                    <button className="border bg-blue-200 px-2 py-1 mt-2 rounded hover:font-bold">Buy Now</button>
-                </div>
-                <div className="shadow-lg rounded-md border w-fit bg-green-200 p-2 m-2">
-                    <h2>Macbook Pro M3:</h2>
-                    <p>Product description goes here.</p>
-                    <button className="border bg-blue-200 px-2 py-1 mt-2 rounded hover:font-bold">Buy Now</button>
-                </div>
-                <div className="shadow-lg rounded-md border w-fit bg-green-200 p-2 m-2">
-                    <h2>Macbook Pro M2:</h2>
-                    <p>Product description goes here.</p>
-                    <button className="border bg-blue-200 px-2 py-1 mt-2 rounded hover:font-bold">Buy Now</button>
-                </div>
-            </div>
-            <footer className="font-bold bg-blue-200 text-center">--- Product footer --- </footer>
-        </div>
-    )
+const products = [
+    { name: "I Pad Pro M4", description: "Product description ipad goes here.", image: "/ipad.png" },
+    { name: "I Phone", description: "Product description ipad goes here.", image: "/iphone.png" },
+    { name: "Macbook Pro M4", description: "Product description ipad goes here.", image: "/mac.png" },
+    { name: "Apple Watch", description: "Product description ipad goes here.", image: "/apple watch.jpeg" },
+];
+
+return (<div>
+    <h1 className="font-bold text-2xl text-center my-4">Product</h1>
+    <div className="flex flex-wrap m-auto justify-center w-[80%] border rounded p-4 bg-slate-100 mb-6">
+        {
+            products.map((product, index) => {
+                return (
+                    <ProductItem
+                        key={index}
+                        index={index}
+                        productName={product.name}
+                        description={product.description}
+                        image_url={product.image} 
+                    />
+                )
+            })
+        }
+    </div>
+
+    <Footer />
+</div>
+)
 }
