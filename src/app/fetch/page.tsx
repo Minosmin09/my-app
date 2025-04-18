@@ -2,9 +2,15 @@
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
 
+type TGithub = {
+    login: string
+    id: number
+    avatar_url: string
+}
+
 export default function FetchAPI() {
     const [name, setName] = useState('Minosmin09')
-    const [profile, setProfile] = useState({})
+    const [profile, setProfile] = useState({} as TGithub)
 
     const fetchAPI = async () => {
         const data = await fetch(`https://api.github.com/users/${name}`)
